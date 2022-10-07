@@ -3,11 +3,11 @@
     fetch('https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita')
     .then(response => response.json())
     .then(data => leer(data));
+
     }
 
-    function leer(data){
-        console.log(data)
-        document.getElementById("bebidas").innerHTML = ""
+    function leer(data){        
+        document.getElementById("bebidas").innerHTML =""
         for (let i = 0; i < 6; i++){
             let nombre = data.drinks[i].strDrink;
             let ingrediente1 = data.drinks[i].strIngredient1
@@ -16,23 +16,40 @@
             let alcoholic = data.drinks[i].strAlcoholic
             let category = data.drinks[i].strCategory
 
-            document.getElementById("bebidas").innerHTML += `
-            <div class="card" style="width: 18rem;">
+            document.getElementById("bebidas").innerHTML +=`
+            <div class="card row" style="width: 18rem;">
                 <img src="img/imgcoctel.jfif" class="card-img-top" alt="...">
                 <div class="card-body">
-                 <h5 class="card-title" name="${nombre}" >${nombre}</h5>
+                 <h5 class="card-title">${nombre}</h5>
                   <p class="card-text">Ingredientes</p>     
                   <p class="card-text">${ingrediente1}, ${ingrediente2}, ${ingrediente3}</p> 
                   <p class="card-text">Categoría: ${category}</p>  
                 <a href="#" class="btn btn-primary">${alcoholic}</a>
-                  <button type="button" class="btn btn-success">Comprar</button>
+                  <button type="button" class="btn btn-success" onclick="agregarCarrito('${nombre}')">Comprar</button>
                 </div>
             </div>            
             `
         }
     }
 
-    function agregarCarrito(){
+    function agregarCarrito(nombreBebida){
+
+        nombre = nombreBebida
+        precio = 20000
+
+        let coctel= {
+            nombre,
+            precio
+        }
+        if(localStorage.getItem("Cocteles") == null){
+            let cocteles = []
+            cocteles.push(coctel)
+            localStorage.setItem("Cocteles",JSON.stringify(cocteles))
+          } else{
+            let cocteles = JSON.parse(localStorage.getItem("Cocteles"))
+            cocteles.push(coctel)
+            localStorage.setItem("Cocteles",JSON.stringify(cocteles))
+          }
 
     }
 
