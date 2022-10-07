@@ -1,0 +1,37 @@
+html, body{
+    height: 100%;
+    }
+
+body{
+    background: rgb(34,115,222);
+    background: linear-gradient(130deg, rgba(34,115,222,1) 0%, rgba(0,164,255,1) 18%, rgba(195,207,20,1) 40%, rgba(231,0,0,1) 60%, rgba(0,0,0,1) 79%, rgba(255,255,255,1) 100%);
+    background-attachment:fixed;
+}
+
+.card {
+    margin-left: 5%;
+    margin-top: 5%;
+    background: rgb(63,251,118);
+    background: radial-gradient(circle, rgba(63,251,118,1) 0%, rgba(246,252,70,1) 100%);
+}
+
+img{
+    margin-top: 5%;
+}
+
+a{
+    margin-left: 5%;
+    margin-top: 5%;
+}
+
+h2{
+    margin-top: 5%;
+    margin-left: 5%;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    
+}
+

@@ -17,14 +17,14 @@
             let category = data.drinks[i].strCategory
 
             document.getElementById("bebidas").innerHTML +=`
-            <div class="card row" style="width: 18rem;">
+            <div class="card col-md-4" style="width: 18rem;">
                 <img src="img/imgcoctel.jfif" class="card-img-top" alt="...">
                 <div class="card-body">
                  <h5 class="card-title">${nombre}</h5>
                   <p class="card-text">Ingredientes</p>     
                   <p class="card-text">${ingrediente1}, ${ingrediente2}, ${ingrediente3}</p> 
                   <p class="card-text">Categoría: ${category}</p>  
-                <a href="#" class="btn btn-primary">${alcoholic}</a>
+                  <button type="button" class="btn btn-primary">${alcoholic}</button>
                   <button type="button" class="btn btn-success" onclick="agregarCarrito('${nombre}')">Comprar</button>
                 </div>
             </div>            
